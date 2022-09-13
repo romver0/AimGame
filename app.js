@@ -3,6 +3,7 @@ const screens = document.querySelectorAll('.screen');
 const timeBtn = document.querySelector('#time-list');
 const timeElement = document.querySelector('#time');
 const board = document.querySelector('#board');
+console.log('startBtn',startBtn);
 
 
 let time = 0;
@@ -76,9 +77,13 @@ function descreaseTime(){
     }
 }
 function setTime(min,sec){
-    if(sec<10){
+    if(sec<10 && min<1){
         timeElement.innerHTML=`${min}:0${sec}`;
         timeElement.style.color='red';
+    }
+    else if(sec<10)
+    {
+        timeElement.innerHTML=`${min}:0${sec}`;
     }
     else{
         timeElement.innerHTML=`${min}:${sec}`;
